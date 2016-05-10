@@ -1,0 +1,17 @@
+---
+# tasks file for varnish
+- name: download pkg rpm...
+  get_url: >-
+    url={{varnish_pkt_rpm_url}}
+    dest=/tmp/{{varnish_pkg_rpm}}
+    owner=root
+    group=root
+    mode=644
+
+- name: adding pkg rpm
+  rpm: name=/tmp/{{varnish_pkg_rpm}} state=present
+
+- name: installing varnish
+  package: name=varnish state=present
+  
+  
