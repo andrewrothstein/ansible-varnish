@@ -1,6 +1,3 @@
 ---
 # defaults file for varnish
-varnish_ver : '4.1'
-
-varnish_elver : '7'
-varnish_mirror : 'https://repo.varnish=cache.org/redhat'
+varnish_ver : '60'

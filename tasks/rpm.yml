@@ -1,0 +1,21 @@
+---
+- name: add yum repository...
+  become: yes
+  become_user: root
+  yum_repository:
+    name: varnishcache_varnish{{varnish_ver}}
+    description: varnish{{varnish_ver}}
+    baseurl: https://packagecloud.io/varnishcache/varnish{{varnish_ver}}/{{varnish_baseurl_type}}/{{varnish_baseurl_ver}}/$basearch
+    repo_gpgcheck: yes
+    gpgcheck: no
+    enabled: yes
+    gpgkey: https://packagecloud.io/varnishcache/varnish{{varnish_ver}}/gpgkey
+    sslverify: yes
+    sslcacert: /etc/pki/tls/certs/ca-bundle.crt
+    metadata_expire: 300
+- name: install varnish...
+  become: yes
+  become_user: root
+  package:
+    name: varnish
+    state: present

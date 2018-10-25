@@ -1,0 +1,4 @@
+---
+varnish_pkg_mgr: rpm
+varnish_baseurl_type: el
+varnish_baseurl_ver: 7

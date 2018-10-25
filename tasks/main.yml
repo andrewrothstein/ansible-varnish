@@ -1,17 +1,19 @@
 ---
-# tasks file for varnish
-- name: download pkg rpm...
-  get_url: >-
-    url={{varnish_pkt_rpm_url}}
-    dest=/tmp/{{varnish_pkg_rpm}}
-    owner=root
-    group=root
-    mode=644
-
-- name: adding pkg rpm
-  rpm: name=/tmp/{{varnish_pkg_rpm}} state=present
-
-- name: installing varnish
-  package: name=varnish state=present
-  
-  
+- name: resolve platform specific vars
+  include_vars: '{{item}}'
+  with_first_found:
+    - files:
+        - '{{ansible_distribution}}-{{ansible_distribution_release}}.yml'
+        - '{{ansible_distribution}}.yml'
+        - '{{ansible_os_family}}.yml'
+      skip: true
+      paths:
+        - '{{role_path}}/vars'
+- name: install os dep pkgs...
+  become: yes
+  become_user: root
+  with_items: '{{varnish_os_pkgs|default([])}}'
+  package:
+    name: '{{item}}'
+    state: present
+- include_tasks: '{{varnish_pkg_mgr}}.yml'

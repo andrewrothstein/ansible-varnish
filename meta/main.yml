@@ -1,19 +1,28 @@
 ---
 galaxy_info:
   author: Andrew Rothstein
-  description: varnish role
-  company: BlackRock
+  description: '@TODO name this role'
+  company: BlueMountain Capital
   license:
     - MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 2.0
   platforms:
     - name: EL
       versions:
-        - 7
-
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - jessie
+        - stretch
   galaxy_tags:
     - development
 
 dependencies:
-  - andrewrothstein.epel
-  
+  - role: andrewrothstein.epel
+    version: v1.0.6

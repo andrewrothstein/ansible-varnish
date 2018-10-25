@@ -1,0 +1,4 @@
+---
+varnish_os_pkgs:
+  - apt-transport-https
+varnish_pkg_mgr: apt
