@@ -1,4 +1,4 @@
 ---
 # vars file for varnish
-varnish_pkg_rpm: 'varnish-{{varnish_ver}}-el{{varnish_elver}}.rpm'
-varnish_pkg_rpm_url: '{{varnish_mirror}}/{{varnish_rpm}}'
+varnish_pkg_rpm: 'varnish-{{ varnish_ver }}-el{{ varnish_elver }}.rpm'
+varnish_pkg_rpm_url: '{{ varnish_mirror }}/{{ varnish_rpm }}'
