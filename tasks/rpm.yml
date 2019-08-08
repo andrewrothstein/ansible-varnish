@@ -13,9 +13,3 @@
     sslverify: yes
     sslcacert: /etc/pki/tls/certs/ca-bundle.crt
     metadata_expire: 300
-- name: install varnish...
-  become: yes
-  become_user: root
-  package:
-    name: varnish
-    state: present

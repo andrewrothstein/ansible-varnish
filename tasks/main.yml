@@ -17,3 +17,9 @@
     name: '{{ item }}'
     state: present
 - include_tasks: '{{ varnish_pkg_mgr }}.yml'
+- name: install varnish
+  become: yes
+  become_user: root
+  package:
+    name: varnish
+    state: present

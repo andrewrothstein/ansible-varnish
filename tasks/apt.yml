@@ -3,16 +3,10 @@
   become: yes
   become_user: root
   apt_key:
-    url: https://packagecloud.io/varnishcache/varnish{{ varnish_ver }}/gpgkey
-    id: D2605BF74E8B9DBA
+    url: '{{ varnish_apt_key_url }}'
+    state: present
 - name: add apt repo...
   become: yes
   become_user: root
   apt_repository:
-    repo: deb https://packagecloud.io/varnishcache/varnish{{ varnish_ver }}/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main
-- name: install varnish
-  become: yes
-  become_user: root
-  package:
-    name: varnish
-    state: present
+    repo: '{{ varnish_apt_repo }}'

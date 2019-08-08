@@ -2,3 +2,6 @@
 varnish_os_pkgs:
   - apt-transport-https
 varnish_pkg_mgr: apt
+
+varnish_apt_key_url: https://packagecloud.io/varnishcache/varnish{{ varnish_ver }}/gpgkey
+varnish_apt_repo: deb https://packagecloud.io/varnishcache/varnish{{ varnish_ver }}/{{ ansible_distribution | lower }}/ {{ ansible_distribution_release }} main
