@@ -24,6 +24,5 @@ galaxy_info:
   - name: Ubuntu
     versions:
     - bionic
-    - focal
     - xenial
   role_name: varnish
