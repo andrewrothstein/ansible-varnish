@@ -1,3 +1,3 @@
 ---
 # defaults file for varnish
-varnish_ver: '63'
+varnish_ver: '64'
