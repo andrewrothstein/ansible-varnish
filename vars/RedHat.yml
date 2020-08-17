@@ -1,4 +1,4 @@
 ---
 varnish_pkg_mgr: rpm
 varnish_baseurl_type: el
-varnish_baseurl_ver: 7
+varnish_baseurl_ver: '{{ ansible_distribution_major_version }}'
