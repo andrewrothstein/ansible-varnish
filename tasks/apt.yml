@@ -8,5 +8,6 @@
 - name: add apt repo...
   become: yes
   become_user: root
+  with_items: '{{ varnish_apt_repos }}'
   apt_repository:
-    repo: '{{ varnish_apt_repo }}'
+    repo: '{{ item }}'
