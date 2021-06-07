@@ -7,16 +7,11 @@ branches:
   - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 dist: focal
 env:
-- OS=centos_7
 - OS=centos_8
 - OS=debian_bullseye
 - OS=debian_buster
-- OS=debian_stretch
-- OS=ubi8_8.1
-- OS=ubi8_8.2
 - OS=ubuntu_bionic
 - OS=ubuntu_focal
-- OS=ubuntu_xenial
 language: python
 python: '3.9'
 script:
