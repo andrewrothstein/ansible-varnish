@@ -10,7 +10,7 @@
       paths:
         - '{{ role_path }}/vars'
 - name: install os dep pkgs...
-  become: yes
+  become: true
   become_user: root
   with_items: '{{ varnish_os_pkgs|default([]) }}'
   package:
@@ -18,7 +18,7 @@
     state: present
 - include_tasks: '{{ varnish_pkg_mgr }}.yml'
 - name: install varnish
-  become: yes
+  become: true
   become_user: root
   package:
     name: varnish

@@ -1,11 +1,11 @@
 ---
-- name: add gpg key...
+- name: add apt gpg key from {{ varnish_apt_key_url }}
   become: yes
   become_user: root
   apt_key:
     url: '{{ varnish_apt_key_url }}'
     state: present
-- name: add apt repo...
+- name: adding apt repos...
   become: yes
   become_user: root
   with_items: '{{ varnish_apt_repos }}'
