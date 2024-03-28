@@ -1,15 +1,15 @@
 ---
-- name: add yum repository...
-  become: yes
+- name: Adding yum repository...
+  become: true
   become_user: root
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: varnishcache_varnish{{ varnish_ver }}
     description: varnish{{ varnish_ver }}
-    baseurl: https://packagecloud.io/varnishcache/varnish{{ varnish_ver }}/{{ varnish_baseurl_type }}/{{ varnish_baseurl_ver }}/$basearch
-    repo_gpgcheck: yes
-    gpgcheck: no
-    enabled: yes
+    baseurl: 'https://packagecloud.io/varnishcache/varnish{{ varnish_ver }}/{{ varnish_baseurl_type }}/{{ varnish_baseurl_ver }}/$basearch'
+    repo_gpgcheck: true
+    gpgcheck: false
+    enabled: true
     gpgkey: https://packagecloud.io/varnishcache/varnish{{ varnish_ver }}/gpgkey
-    sslverify: yes
+    sslverify: true
     sslcacert: /etc/pki/tls/certs/ca-bundle.crt
     metadata_expire: 300

@@ -1,13 +1,13 @@
 ---
-- name: add apt gpg key from {{ varnish_apt_key_url }}
-  become: yes
+- name: Add apt gpg key from {{ varnish_apt_key_url }}
+  become: true
   become_user: root
-  apt_key:
+  ansible.builtin.apt_key:
     url: '{{ varnish_apt_key_url }}'
     state: present
-- name: adding apt repos...
-  become: yes
+- name: Adding apt repos...
+  become: true
   become_user: root
   with_items: '{{ varnish_apt_repos }}'
-  apt_repository:
+  ansible.builtin.apt_repository:
     repo: '{{ item }}'

@@ -1,4 +1,13 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.varnish
+  hosts: all
   roles:
     - role: '{{ playbook_dir }}'
+  tasks:
+    - name: Executing 'varnishd -V'
+      ansible.builtin.command: varnishd -V
+      changed_when: false
+      register: varnish_test_output
+    - name: Output of 'varnishd -V'
+      ansible.builtin.debug:
+        msg: '{{ varnish_test_output.stderr }}'

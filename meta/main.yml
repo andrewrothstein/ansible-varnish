@@ -1,28 +1,24 @@
 ---
-dependencies:
-- role: andrewrothstein.epel
-  version: v1.1.2
-- role: andrewrothstein.gpg
-  version: v1.0.8
 galaxy_info:
   author: Andrew Rothstein
   company: BlueMountain Capital
   description: installs varnish
   galaxy_tags:
-  - development
-  license:
-  - MIT
-  min_ansible_version: 2.0
+    - development
+  license: MIT
+  min_ansible_version: '2.0'
+  namespace: andrewrothstein
   platforms:
-  - name: Debian
-    versions:
-    - bullseye
-    - buster
-  - name: EL
-    versions:
-    - 8
-  - name: Ubuntu
-    versions:
-    - bionic
-    - focal
+    - name: Debian
+      versions:
+        - bookworm
+        - bullseye
+    - name: EL
+      versions:
+        - '8'
+        - '9'
+    - name: Ubuntu
+      versions:
+        - focal
+        - jammy
   role_name: varnish
